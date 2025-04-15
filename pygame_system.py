@@ -8,7 +8,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 def main():
     pg.display.set_caption("はじめてのPygame")
     screen = pg.display.set_mode((800, 600))
-    clock = pg.time.Clock()
+    clock = pg.time.Clock(60)
     font = pg.font.Font(None, 80)
 
     enn = pg.Surface((20, 20))
