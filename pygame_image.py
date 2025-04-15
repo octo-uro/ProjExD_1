@@ -26,7 +26,8 @@ def main():
         screen.blit(kk_img, kk_rct)
         key_lst = pg.key.get_pressed()
         key = lambda k: int(key_lst[k])
-        kk_rct.move_ip(key(pg.K_RIGHT) - key(pg.K_LEFT), key(pg.K_DOWN) - key(pg.K_UP))
+        afk = int(not any(key(k) for k in [pg.K_UP, pg.K_DOWN, pg.K_LEFT, pg.K_RIGHT]))
+        kk_rct.move_ip(key(pg.K_RIGHT) - key(pg.K_LEFT) - afk, key(pg.K_DOWN) - key(pg.K_UP))
         pg.display.update()
         tmr += 1
         clock.tick(200)
