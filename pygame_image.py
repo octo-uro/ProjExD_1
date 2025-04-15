@@ -27,7 +27,7 @@ def main():
         key_lst = pg.key.get_pressed()
         key = lambda k: int(key_lst[k])
         afk = int(not any(key(k) for k in [pg.K_UP, pg.K_DOWN, pg.K_LEFT, pg.K_RIGHT]))
-        kk_rct.move_ip(key(pg.K_RIGHT) - key(pg.K_LEFT) - afk, key(pg.K_DOWN) - key(pg.K_UP))
+        kk_rct.move_ip(key(pg.K_RIGHT) - key(pg.K_LEFT) - afk, key(pg.K_DOWN) - key(pg.K_UP)) # 最初から一行で書いているので演習２は不要
         pg.display.update()
         tmr += 1
         clock.tick(200)
