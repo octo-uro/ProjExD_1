@@ -13,6 +13,8 @@ def main():
     bg_img_revarse = pg.transform.flip(bg_img, True, False)
     kk_img = pg.image.load("fig/3.png")
     kk_img = pg.transform.flip(kk_img, True, False)
+    kk_rct = kk_img.get_rect()
+    kk_rct.center = 300, 200
 
     tmr = 0
     while True:
@@ -21,8 +23,10 @@ def main():
         x = tmr % 1600
         screen.blit(bg_img, [-x, 0])
         screen.blit(bg_img_revarse, [1600-x, 0])
-        screen.blit(kk_img, [300, 200])
-
+        screen.blit(kk_img, kk_rct)
+        key_lst = pg.key.get_pressed()
+        key = lambda k: int(key_lst[k])
+        kk_rct.move_ip(key(pg.K_RIGHT) - key(pg.K_LEFT), key(pg.K_DOWN) - key(pg.K_UP))
         pg.display.update()
         tmr += 1
         clock.tick(200)
